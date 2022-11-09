@@ -1,19 +1,16 @@
 ﻿// *Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.*
-
 // m = 3, n = 4.
-
 // 0,5 7 -2 -0,2
-
 // 1 -3,3 8 -9,9
-
 // 8 7,8 -7,1 9
 
-// void CreateArray(int m, int n)
-// {
-//     double[,] array = new double[m, n];
-// }
+double[,] CreateArray(int m, int n)
+{
+    double[,] array = new double[m, n];
+    return array;
+}
 
-void FillArray(double[,] array)
+double[,] FillArray(double[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -22,6 +19,7 @@ void FillArray(double[,] array)
             array[i, j] = new Random().NextDouble() * 10;
         }
     }
+    return array;
 }
 
 void PrintArray(double[,] array)
@@ -30,7 +28,7 @@ void PrintArray(double[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.Write(Math.Round((array[i, j]), 2) + "\t");
+            Console.Write(Math.Round((array[i, j]), 3) + "\t");
         }
         Console.WriteLine();
     }
@@ -38,7 +36,6 @@ void PrintArray(double[,] array)
 
 int m = 3;
 int n = 4;
-double[,] array = new double[m, n];
-// CreateArray(m, n);
+double[,] array = CreateArray(m, n);
 FillArray(array);
 PrintArray(array);
